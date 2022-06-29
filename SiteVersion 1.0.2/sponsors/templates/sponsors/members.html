@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Members</title>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="jumbotron">
+  <div class="container">
+    <div class='row'>
+      <div>
+        <h1 class="display-3 font">Members <i class="fa fa-user-circle" aria-hidden="true"></i></h1>    
+      </div>
+    </div>
+  </div>
+</div>
+<div class='container'>
+	<h1 class="font">Students</h1>
+	<div class='container'>
+	<div class='row rowb'>
+	{% for students in student %}
+		
+		<div class='col-sm-4 col-sm-offset-4'>
+		<h2 class="font"><span class="text-muted">{{ students.student }}   {{ students.last }}</span></h2>
+		</div>
+		{% endfor %}
+	</div>
+	</div>
+	<hr class="featurette-divider">
+	<h1 class="font">Staff</h1>
+	<div class='container'>
+	<div class='row rowb'>
+		{% for staffs in staff %}
+		<div class='col-sm-3 col-sm-offset-3'>
+		<h2 class="font"><span class="text-muted">{{ staffs.staff }} {{ staffs.last }}</span></h2>
+		</div>
+		{% endfor %}
+	</div>
+	</div>
+
+
+	<hr class="featurette-divider">
+</div>
+
+{% endblock %}

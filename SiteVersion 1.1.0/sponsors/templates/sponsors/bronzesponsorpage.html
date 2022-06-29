@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Bronze Sponsors</title>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="jumbotron">
+  <div class="container">
+    <div class='row'>
+      <div>
+        <h1 class="display-3 font">Bronze Sponsors <i style="color:#97613d" class="fa fa-money" aria-hidden="true"></i></h1>    
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+   {% for sponsors in sponsor %}
+    {% if sponsors.category.name == "Bronze" %}
+
+    
+
+    <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="display-5 font">{{ sponsors.name }}</h2>
+          <p class="lead font">{{ sponsors.category }}</p>
+          <p class="lead font">{{ sponsors.description }}</p>
+         <!-- <form action="/frc6324/gold/{{ sponsors.slug }}">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Details</button>
+        </form>-->
+        </div>
+        <div class="col-md-5">
+        {% if sponsors.image %}
+        <img height="500" width="600" class="featurette-image img-fluid mx-auto" src="{{ sponsors.image.url }}" alt="Generic placeholder image">
+        {% endif %}         
+        </div>
+      </div>
+      <hr class="featurette-divider">
+      
+      {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

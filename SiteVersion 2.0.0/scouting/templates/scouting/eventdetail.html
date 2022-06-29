@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+<title>FRC 6324|Scouting Data</title>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="jumbotron">
+  <div class="container">
+    <h2 class="header-center title-font" style="text-align: center;">{{ objet_name }}'s' History at the {{obj_name}} Event</h2>  
+  </div>
+</div>
+
+
+<div class="container"> 
+
+  <h2 class="font">{{ objet_name }}'s' History at {{obj_name}} Event</h2>
+      <div class="table-responsive">
+        <table class="font table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Event</th>
+              <th>Cargo</th>
+              <th>Hatches</th>
+              <th>Climb Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for matchs in match %}
+            {% if matchs.event.name == obj_name %}
+            {% if matchs.team.name == objet_name %}
+            <tr>
+              <td>{{ objet_number }}</td>
+              <td>{{ matchs.event}}</td>
+              <td>{{ matchs.cargoPlaced }}</td>
+              <td>{{ matchs.hatchesPlaced }}</td>
+              <td>{{ matchs.habLevelEnd }}</td>
+            </tr>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+</div> 
+
+
+
+   
+
+
+{% endblock %}

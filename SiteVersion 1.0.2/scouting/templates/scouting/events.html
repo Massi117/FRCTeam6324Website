@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+<title>Scouting Data</title>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="jumbotron">
+  <div class="container">
+    <div class='row'>
+      <div class = "col-md-7">
+        <h1 class="display-3 font">Events <i class="fa fa-users" aria-hidden="true"></i></i></h1>  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container"> 
+  <div class="card-deck mb-3 text-center">
+    {% for events in event %}
+    <div class="col-lg-4">
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">#{{ events.name }}</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">k</h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>AutoLine in Autonomous?:</li>
+            <li>Switch in Autonomous?: </li>
+            <li>Scale in Autonomous?:</li>
+            <li>Can Climb?: </li>
+          </ul>
+          <a class="font btn btn-lg btn-block btn-outline-primary" href="/scouting/events/{{ events.slug }}" role="button">Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}   
+  </div>
+</div> 
+
+
+
+   
+
+
+{% endblock %}

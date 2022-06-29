@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+
+{% block body %}
+{% load static %}
+
+<div class="jumbotron">
+      <div class="container">
+      <div class='row'>
+      <div class='col-sm-6'>
+      {% if user.first_name %}
+        <h1 class="font display-3">{{ user.first_name }}'s Profile</h1>
+        {% else %}
+        <h1 class="font display-3">{{ user }}'s Profile</h1>
+        {% endif %}
+        <p class="font lead">First name: {{ user.first_name }}</p>
+    	<p class="font lead">Last name: {{ user.last_name }}</p>
+        <p><a class="font btn btn-outline-primary my-2 my-sm-0" href="{% url 'feed:edit_profile' %}" role="button">Edit Profile</a></p>
+        </div>
+      </div>
+</div>
+</div>
+
+
+
+<div class="container">
+    <p class="font lead">Email: {{ user.email }}</p>
+    <!---<p class="lead">Description: {{ user.userprofile.description }}</p>-->
+</div>
+
+{% endblock %}

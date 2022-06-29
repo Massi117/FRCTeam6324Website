@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<title>FRC 6324|Feed</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron">
+  <div class="container">
+    <div class='row'>
+      <div>
+        <h1 class="display-3 font">Comment Page</h1>    
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+    <div class="col-md-8">   
+        {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <button class="font btn btn-outline-primary my-2 my-sm-0" type="submit">Submit</button>
+        </form>
+        {% endif %}
+        <h2 class="font">{{ text }}</h2>
+        {% for post in posts %}
+            <h1 class="font">{{ post.title }}</h1>
+            <p class="font">{{ post.post }}</p>
+            <p><span class="font text-muted">Posted by {{ post.user.get_full_name }} on {{ post.created }}</span></p>
+        {% endfor %}
+    </div>
+   <!-- <div class="col-md-4">
+        <h2>Team Members</h2>
+        {% for user in users %}
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="{% url 'feed:view_profile' %}">
+                <h3>{{ user.username }}</h3>
+            </a>
+        {% endfor %}
+    </div>-->
+</div>
+{% endblock %}

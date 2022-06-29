@@ -1,0 +1,56 @@
+{% load static %}
+
+  ​<ul class="font">
+    <li>
+      <a class="active font" href="{% url 'sponsors:home' %}">
+        <img style="margin-right: 10px;" src="https://media.discordapp.net/attachments/531234911198380072/531242299980644363/Blue_Devil_Transparent.png?width=565&height=551" width="20" height="20">
+        The Blue Devils
+      </a>
+    </li>
+    <li class="dropmenu">
+      <a href="javascript:void(0)" class="font dropbtn">About Us</a>
+      <div class="font dropmenu-content">
+        <a href="{% url 'sponsors:members' %}">Team Members</a>
+        <a href="{% url 'sponsors:community' %}">Our Community</a>
+        <a href="{% url 'sponsors:about_us' %}">Our History</a>
+      </div>
+    </li>
+    <li><a class="font" href="{% url 'sponsors:sponsor_page' %}">Sponsors</a></li>
+    <li class="dropmenu">
+      <a href="javascript:void(0)" class="font dropbtn">Contact Us</a>
+      <div class="font dropmenu-content">
+        <a href="{% url 'sponsors:become' %}">Become a Sponsor</a>
+        <a href="{% url 'sponsors:contact' %}">Contact Us</a>
+      </div>
+    </li>
+
+
+    {% if user.is_authenticated %}
+
+
+    <li><a class="font" href="{% url 'feed:blog' %}">Feed</a></li>
+    
+    <li style="float: right;"><a href="/scouting/scouttable/salem-blue-devils/">Our Team</a></li>
+    <li style="float: right;"><a href="{% url 'scouting:scouttable' %}">Scouting</a></li>
+    <li style="float: right;" class="dropmenu">
+      <a href="javascript:void(0)" class="dropbtn">Profile</a>
+      <div class="font dropmenu-content">
+        <a href="{% url 'feed:view_profile' %}">Profile Page</a>
+        <a href="{% url 'feed:edit_profile' %}">Edit Profile</a>
+        <a href="{% url 'feed:change_password' %}">Change Password</a>
+        <a href="/admin/">Administration</a>
+        <a href="{% url 'feed:logout' %}">Logout</a>
+      </div>
+    </li>
+
+    {% else %}
+
+
+    <li style="float: right;"><a href="{% url 'feed:login' %}">Sign In</a></li>
+    <li><a href="{% url 'feed:blog' %}">Feed</a></li>
+
+
+    {% endif %}
+
+
+  </ul>

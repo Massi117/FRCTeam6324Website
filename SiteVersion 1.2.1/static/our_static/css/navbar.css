@@ -1,0 +1,62 @@
+/* Navbar */
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: -21px;
+  overflow: hidden;
+  background-color: #2A458A;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropmenu:hover .dropbtn {
+  background-color: #1A2B57;
+  color: white;
+}
+
+li.dropmenu {
+  display: inline-block;
+}
+
+.dropmenu-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropmenu-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropmenu-content a:hover {
+  background-color: #f1f1f1
+  color: black;
+}
+
+.dropmenu:hover .dropmenu-content {
+  display: block;
+}
+
+.active {
+  background-color: #1A2B57;
+}

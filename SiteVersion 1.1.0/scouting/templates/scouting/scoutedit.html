@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+<title>Edit {{ obj_name }}</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h2 class="font featurette-heading">Edit {{ obj_name }}</h2>
+    <div class="row featurette">
+        <div class="col-md-7">      
+            <form method="post">
+            	{% csrf_token %}
+                {{ form|crispy }}
+                <button class="font btn btn-outline-primary my-2 my-sm-0" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <hr class="featurette-divider">
+</div>
+
+
+
+{% endblock %}

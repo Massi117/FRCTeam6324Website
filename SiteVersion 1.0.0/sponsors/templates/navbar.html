@@ -1,0 +1,92 @@
+{% load static %}
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse navbar-expand-md">
+      <a class="font navbar-brand" href="{% url 'sponsors:home' %}">
+        The Blue Devils
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <ul class="navbar-nav mr-auto">                       
+
+          <li class="nav-item dropdown">
+            <a class="font nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="font dropdown-item" href="{% url 'sponsors:members' %}">Team Members</a>
+              <a class="font dropdown-item" href="{% url 'sponsors:community' %}">Our Community</a>
+              <a class="font dropdown-item" href="{% url 'sponsors:about_us' %}">Our History</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="font nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Sponsors</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="font dropdown-item" href="{% url 'sponsors:gold_sponsor_page' %}">Gold Sponsors</a>
+              <a class="font dropdown-item" href="{% url 'sponsors:silver_sponsor_page' %}">Silver Sponsors</a>
+              <a class="font dropdown-item" href="{% url 'sponsors:bronze_sponsor_page' %}">Bronze Sponsors</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="font nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="font dropdown-item" href="{% url 'sponsors:become' %}">Become a Sponsor</a>
+              <a class="font dropdown-item" href="{% url 'sponsors:contact' %}">Contact Us</a>
+            </div>
+          </li>
+
+          {% if user.is_authenticated %}
+
+          <li class="nav-item">
+            <a class="font nav-link" href="{% url 'feed:blog' %}">Feed</a>
+          </li>
+
+          {% endif %}
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+
+          {% if user.is_authenticated %}
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item dropdown">
+              <a class="font nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="font dropdown-item" href="{% url 'feed:view_profile' %}">Profile Page</a>
+                <a class="font dropdown-item" href="{% url 'feed:edit_profile' %}">Edit Profile</a>
+                <a class="font dropdown-item" href="{% url 'feed:change_password' %}">Change Password</a>
+                <a class="font dropdown-item" href="http://75.98.169.187:8000/admin/">Administration</a>
+                <a class="font dropdown-item" href="{% url 'feed:logout' %}">Logout</a>
+              </div>
+              </li>
+            </ul>
+
+          <li class="nav-item">
+            <a class="font nav-link" href="{% url 'scouting:scouttable' %}">Scouting</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="font nav-link" href="/scouting/scouttable/salem-blue-devils/">Our Team</a>
+          </li>
+
+            {% else %}
+            
+            <li class="nav-item">
+            <a class="font nav-link" href="{% url 'feed:login' %}">Sign In</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="font nav-link" href="{% url 'feed:blog' %}">Feed</a>
+          </li>
+
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+
+
+  

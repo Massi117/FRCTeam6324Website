@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+<title>FRC 6324|Home</title>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="title-parallax">
+  <div class="caption">
+  <span class="border title-font">FRC Team 6324</span>
+  </div>
+
+  <div class="caption2">
+  <span class="border white-font">The Salem Blue Devils</span>
+  </div>
+</div>
+
+<div style="height:1500px;background-color:white;">
+
+<div class="container top-padding">
+  <div class="row">
+<div class="col-sm-6">
+
+  <span class="header bottom-padding title-font">Find us on...</span>
+
+        <p><a class="logo-btn" style="color: white;" href="https://twitter.com/salem_robotics" role="button"><i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i></a>
+
+        <a class="logo-btn" href="https://www.facebook.com/salemrobotics/" role="button"><i class="fa fa-facebook-square fa-5x" style="color: white;" aria-hidden="true"></i></a>
+
+        <a class="logo-btn" style="color: white;" href="https://www.youtube.com/channel/UCC2lZGkyiLseevvwXbQCA0g" role="button"><i class="fa fa-youtube-square fa-5x" aria-hidden="true"></i></a></p>
+
+      </div>
+
+
+      <div class="col-sm-6 bottom-padding" style="margin-top: : 10px;">
+        <iframe width="464" height="250" src="https://www.youtube.com/embed/1y9PNhVAGmM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+</div>
+</div>
+
+
+ 
+{% include 'sponsors/homeFiles/headers.html' %}
+
+
+
+</div>
+
+{% endblock %}

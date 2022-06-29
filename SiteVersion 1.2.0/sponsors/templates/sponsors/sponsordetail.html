@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<title>FRC 6324|{{ obj_name }}</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+	<div class="col-md-7">
+          <h2 class="display-3 font"> {{ obj_name }}</h2>       
+    </div>   
+	 <div class="row featurette">
+        <div class="col-md-7">
+          <p class="lead font">{{ obj_info }}</p>
+        </div>
+        <div class="col-md-5">
+        	{% if obj_img %}
+    		<img class="featurette-image img-fluid mx-auto" src="{{ obj_img.url }}" alt="Generic placeholder image">
+    		{% endif %}         
+        </div>
+      </div>
+    
+    
+</div>
+
+{% endblock %}

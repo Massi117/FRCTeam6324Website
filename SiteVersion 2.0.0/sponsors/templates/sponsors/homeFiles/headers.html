@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<div class="container top-padding">
+      <!-- Example row of columns -->
+      
+
+        {% for stuffs in stuff %}
+
+        {% if stuffs.place == True %}
+        <div class="row featurette top-padding">
+        <div class="col-md-8 push-md-4">
+          <span class="header">{{ stuffs.title }}</span>
+          <p class="lead font">{{ stuffs.body }}</p>
+          </div>
+          {% if stuffs.button %}
+          <div class="col-md-4 pull-md-8">
+          <p class="font"><a style="margin-left: 25px; font-size: 20px; margin-top: 125px; padding: 32px 64px;" class="button" href= "{{ stuffs.url }}"" role="button">{{ stuffs.button }} &raquo;</a></p>
+          {% endif %}
+
+          </div>
+
+        </div>
+
+          {% else %}
+
+          <div class="row featurette top-padding">
+         <div class="col-md-8">
+          <span class="header">{{ stuffs.title }}</span>
+          <p class="lead font">{{ stuffs.body }}</p>
+          </div>
+          {% if stuffs.button %}
+          <div class="col-md-4">
+          <p class="font"><a style="margin-left: 25px; font-size: 20px; margin-top: 125px; padding: 32px 64px;" class="button" href= "{{ stuffs.url }}"" role="button">{{ stuffs.button }} &raquo;</a></p>
+          {% endif %}
+
+          </div>
+
+        </div>
+
+
+          {% endif %}
+        
+    
+        {% endfor %}
+      
+  
+    </div> 

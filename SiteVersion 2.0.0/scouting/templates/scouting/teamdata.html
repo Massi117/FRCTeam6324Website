@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+<title>FRC 6324| {{ obj_name }}</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="font nav-link" href="/scouting/scouttable/{{ obj_script }}/edit">
+              <i class="fa fa-file" aria-hidden="false"></i>
+              Edit Team
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="font nav-link" href="{% url 'scouting:addmatch' %}">
+              <i class="fa fa-plus" aria-hidden="false"></i>
+              Add Match
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading font d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Events</span>
+          <a class="d-flex align-items-right text-muted" href="#">
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          {% for events in event %}
+          <li class="nav-item">
+            <a class="font nav-link" href="/scouting/scouttable/{{ obj_script }}/{{ events.slug }}">
+              {{ events.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h1">#{{ obj_number }}: {{ obj_name }}</h1>
+      </div>
+
+
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Cargo Delivered per Match</h1>
+        <h1 class="font h3">Average: {{ avCargo }} balls per match.</h1>
+      </div>
+      <canvas class="my-4" id="CargoChart" width="900" height="380"></canvas>
+
+
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Hatches Placed per Match</h1>
+        <h1 class="font h3">Average: {{ avHatch }} hatches per match.</h1>
+      </div>
+      <canvas class="my-4" id="HatchChart" width="900" height="380"></canvas>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Climb Level per Match</h1>
+      </div>
+      <canvas class="my-4" id="ClimbChart" width="900" height="380"></canvas>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Match Outcomes</h1>
+      </div>
+      <canvas class="my-4" id="matchChart" width="900" height="380"></canvas>
+
+
+      <h2 class="font">Team History</h2>
+      <div class="table-responsive">
+        <table class="font table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Event</th>
+              <th>Cargo</th>
+              <th>Hatches</th>
+              <th>Climb Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for matchs in match %}
+            {% if matchs.team.name == obj_name %}
+            <tr>
+              <td>{{ obj_number }}</td>
+              <td>{{ matchs.event}}</td>
+              <td>{{ matchs.cargoPlaced }}</td>
+              <td>{{ matchs.hatchesPlaced }}</td>
+              <td>{{ matchs.habLevelEnd }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+  var matches = [];
+  var num;
+  for (num = 1; num <= {{ numberOfMatches }}; num++) {
+    matches.push("Match " + num); 
+  }
+
+
+//
+
+  var ctx = document.getElementById("HatchChart").getContext('2d');;
+  var barChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: matches,
+      datasets: [{
+        data: {{ hatchList }},
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#2A458A',
+        borderWidth: 4,
+        pointBackgroundColor: '#007bff'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+                //max: 100,
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+
+    <script>
+      var matches = [];
+      var num;
+      for (num = 1; num <= {{ numberOfMatches }}; num++) {
+        matches.push("Match " + num); 
+      }
+
+      //CARGO CHART
+
+      var ctx = document.getElementById("CargoChart").getContext('2d');;
+      var barChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: matches,
+          datasets: [{
+            data: {{ cargoList }},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#9cc4fd',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                //max: 100,
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+    <script>
+      var matches = [];
+      var num;
+      for (num = 1; num <= {{ numberOfMatches }}; num++) {
+        matches.push("Match " + num); 
+      }
+
+      var ctx = document.getElementById("ClimbChart").getContext('2d');;
+      var barChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: matches,
+          datasets: [{
+            data: {{ habLevelEndList }},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#9cc4fd',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                //max: 100,
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+
+    <script>
+      
+      var ctxP = document.getElementById("matchChart").getContext('2d');
+      var pieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+          labels: ["% Won", "% Lost"],
+          datasets: [
+          {
+            data: [{{ percentWon }}, {{ numberOfMatches }}-{{ percentWon }}],
+            backgroundColor: ["#9cc4fd", "#2A458A"],
+            hoverBackgroundColor: ["#9cc4fd", "#2A458A"]
+          }
+          ]
+        },
+        options: {
+          responsive: true
+        }    
+      });
+
+
+
+    </script>
+
+    {% endblock %}

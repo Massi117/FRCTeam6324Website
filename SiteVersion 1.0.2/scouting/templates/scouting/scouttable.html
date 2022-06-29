@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+<title>Scouting Data</title>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="jumbotron">
+  <div class="container">
+    <div class='row'>
+      <div class = "col-md-7">
+        <h1 class="display-3 font">Scouting Data <i class="fa fa-users" aria-hidden="true"></i></i></h1>  
+      </div>
+      <div class = "col-md-3">
+        <p>
+          <a class="font btn btn-outline-primary btn-block" href="{% url 'scouting:scoutdata' %}" role="button">Add a Team</a>
+        </p>
+        <p>
+          <a class="font btn btn-outline-primary btn-block" href="{% url 'scouting:addmatch' %}" role="button">Add a Match</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container"> 
+  <div class="card-deck mb-3 text-center">
+    {% for teams in team %}
+    <div class="col-lg-4">
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">#{{ teams.number }}</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">{{ teams.name }}</h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>AutoLine in Autonomous?: {{ teams.autoLine }}</li>
+            <li>Switch in Autonomous?: {{ teams.autoSwitch }}</li>
+            <li>Scale in Autonomous?: {{ teams.autoScale }}</li>
+            <li>Can Climb?: {{ teams.climb }}</li>
+          </ul>
+          <a class="font btn btn-lg btn-block btn-outline-primary" href="/scouting/scouttable/{{ teams.script }}" role="button">Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}   
+  </div>
+</div> 
+
+
+
+   
+
+
+{% endblock %}

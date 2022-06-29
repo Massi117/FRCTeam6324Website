@@ -1,0 +1,7 @@
+body {
+  min-height: 500px;
+}
+
+.bg-inverse {
+    background-color: #2A458A!important;
+}

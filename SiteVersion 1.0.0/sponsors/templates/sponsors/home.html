@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+
+<title>Home</title>
+
+{% endblock %}
+
+{% block body %}
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron jumbotron_c">
+    
+      <div class="container">
+      <div class="row">
+      <div class="col-lg-6">
+        <h1 class="display-3 font">FRC Team 6324</h1>
+        
+        <p>_______________________________________________</p>
+
+        <p class="font">Find Us On...</p>
+
+        <p><a class="btn btn-twitter btn-outline-primary" href="https://twitter.com/salem_robotics" role="button"><i class="fa fa-twitter-square fa-5x" aria-hidden="true"></i></a>
+
+        <a class="btn btn-facebook btn-outline-primary" href="https://www.facebook.com/salemrobotics/" role="button"><i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i></a>
+
+        <a class="btn btn-youtube btn-outline-primary" href="https://www.youtube.com/channel/UCC2lZGkyiLseevvwXbQCA0g" role="button"><i class="fa fa-youtube-square fa-5x" aria-hidden="true"></i></a></p>
+
+      </div>
+      <div class="col-sm-6">
+        <iframe width="464" height="275" src="https://www.youtube.com/embed/Rb1byfe_5TU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      </div>
+      </div>
+    </div>
+
+{% include 'sponsors/homeFiles/slider.html' %}
+
+{% include 'sponsors/homeFiles/headers.html' %}
+
+
+{% endblock %}

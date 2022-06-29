@@ -1,0 +1,306 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+<title>FRC 6324|{{ obj_name }}</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="font nav-link" href="#">
+              <span data-feather="file"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="font nav-link" href="/scouting/scouttable/{{ obj_script }}/edit">
+              <i class="fa fa-file" aria-hidden="false"></i>
+              Edit Team
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="font nav-link" href="{% url 'scouting:addmatch' %}">
+              <i class="fa fa-plus" aria-hidden="false"></i>
+              Add Match
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading font d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Other Teams</span>
+          <a class="d-flex align-items-right text-muted" href="#">
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          {% for teams in team %}
+          <li class="nav-item">
+            <a class="font nav-link" href="/scouting/scouttable/{{ teams.script }}">
+              {{ teams.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h1">#{{ obj_number }}: {{ obj_name }}</h1>
+      </div>
+
+
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Cubes in Switch per Match</h1>
+        <h1 class="font h3">Average: {{ avSwitch }} cubes per match.</h1>
+      </div>
+      <canvas class="my-4" id="SwitchChart" width="900" height="380"></canvas>
+
+
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Cubes in Scale per Match</h1>
+        <h1 class="font h3">Average: {{ avScale }} cubes per match.</h1>
+      </div>
+      <canvas class="my-4" id="ScaleChart" width="900" height="380"></canvas>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Cubes in Exchange per Match</h1>
+        <h1 class="font h3">Average: {{ avExchange }} cubes per match.</h1>
+      </div>
+      <canvas class="my-4" id="ExchangeChart" width="900" height="380"></canvas>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Time Spent Per Match</h1>
+      </div>
+      <canvas class="my-4" id="pieChart" width="900" height="380"></canvas>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="font h2">Match Outcomes</h1>
+      </div>
+      <canvas class="my-4" id="matchChart" width="900" height="380"></canvas>
+
+
+      <h2 class="font">Team History</h2>
+      <div class="table-responsive">
+        <table class="font table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cubes in Switch</th>
+              <th>Cubes in Scale</th>
+              <th>Crossed Auto Line</th>
+              <th>Did it Climb</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for matchs in match %}
+            {% if matchs.team.name == obj_name %}
+            <tr>
+              <td>{{ obj_number }}</td>
+              <td>{{ matchs.cubesSwitch }}</td>
+              <td>{{ matchs.cubesScale }}</td>
+              <td>{{ matchs.autoLine }}</td>
+              <td>{{ matchs.canClimb }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+  var matches = [];
+  var num;
+  for (num = 1; num <= {{ numberOfMatches }}; num++) {
+    matches.push("Match " + num); 
+  }
+
+
+
+  var ctx = document.getElementById("ScaleChart").getContext('2d');;
+  var barChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: matches,
+      datasets: [{
+        data: {{ scaleList }},
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#2A458A',
+        borderWidth: 4,
+        pointBackgroundColor: '#007bff'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+                //max: 100,
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+
+    <script>
+      var matches = [];
+      var num;
+      for (num = 1; num <= {{ numberOfMatches }}; num++) {
+        matches.push("Match " + num); 
+      }
+
+      var ctx = document.getElementById("SwitchChart").getContext('2d');;
+      var barChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: matches,
+          datasets: [{
+            data: {{ switchList }},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#9cc4fd',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                //max: 100,
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+    <script>
+      var matches = [];
+      var num;
+      for (num = 1; num <= {{ numberOfMatches }}; num++) {
+        matches.push("Match " + num); 
+      }
+
+      var ctx = document.getElementById("ExchangeChart").getContext('2d');;
+      var barChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: matches,
+          datasets: [{
+            data: {{ exchangeList }},
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#9cc4fd',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                //max: 100,
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+
+    <script>
+      var ctxP = document.getElementById("pieChart").getContext('2d');
+      var pieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+          labels: ["Time on Switch", "Time on Scale", "Time Climbing"],
+          datasets: [
+          {
+            data: [{{ percentSwitch }}, {{ percentScale }}, {{ percentClimb }}],
+            backgroundColor: ["#9cc4fd", "#2A458A", "#86b0ff"],
+            hoverBackgroundColor: ["#9cc4fd", "#2A458A", "#86b0ff"]
+          }
+          ]
+        },
+        options: {
+          responsive: true
+        }    
+      });
+    </script>
+
+    <script>
+      
+      var ctxP = document.getElementById("matchChart").getContext('2d');
+      var pieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+          labels: ["Matches Won", "Matches Lost"],
+          datasets: [
+          {
+            data: [{{ percentWon }}, {{ numberOfMatches }}-{{ percentWon }}],
+            backgroundColor: ["#9cc4fd", "#2A458A"],
+            hoverBackgroundColor: ["#9cc4fd", "#2A458A"]
+          }
+          ]
+        },
+        options: {
+          responsive: true
+        }    
+      });
+
+
+
+    </script>
+
+    <script>
+      
+      var ctxP = document.getElementById("matchChart").getContext('2d');
+      var pieChart = new Chart(ctxP, {
+        type: 'pie',
+        data: {
+          labels: ["Climbed", "Did Not Climb"],
+          datasets: [
+          {
+            data: [{{ percentWon }}, {{ numberOfMatches }}-{{ percentWon }}],
+            backgroundColor: ["#9cc4fd", "#2A458A"],
+            hoverBackgroundColor: ["#9cc4fd", "#2A458A"]
+          }
+          ]
+        },
+        options: {
+          responsive: true
+        }    
+      });
+
+    </script>
+
+    {% endblock %}

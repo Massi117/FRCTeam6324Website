@@ -1,0 +1,171 @@
+{% load static %}
+
+<style>
+
+.font{
+  font-family:ubuntu; 
+  color: #0B142A;
+}
+
+.white-font{
+  font-family:ubuntu; 
+  color: white;
+}
+
+
+.title-font{
+	font-family:ubuntu;
+}
+
+
+.rowb {
+  margin-top: 30px;
+  margin-bottom: 30px
+}
+
+.top-padding {
+  margin-top: 50px;
+
+}
+
+.side-padding {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.bottom-padding {
+  margin-bottom: : 75px;
+
+}
+
+
+/*Testing!!!!!! &*/
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+
+}
+
+.caption span.border {
+  color: white;
+  padding: 18px;
+  font-size: 100px;
+  letter-spacing: 10px;
+
+}
+
+.caption2 {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+
+}
+
+.caption2 span.border {
+  color: white;
+  padding: 18px;
+  font-size: 50px;
+  letter-spacing: 10px;
+
+}
+
+.header {
+  color: #001241;
+  padding: 10px;
+  font-size: 50px;
+  
+}
+
+.title-parallax {
+  /* The image used */
+  background-image: url("{% static 'img/Title_Image.png' %}");
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.footer-parallax {
+  /* The image used */
+  background-image: url("{% static 'img/Blue_Devil_White.png' %}");
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 375px 375px;
+}
+
+
+.logo-btn {
+  background-color: #2A458A; /* Dark Blue */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 10px;
+  cursor: pointer;
+  padding: 15px 25px;
+  outline: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+
+}
+
+.logo-btn:hover {
+  background-color: #1A2B57
+
+}
+
+.logo-btn:active {
+  background-color: #1A2B57;
+  box-shadow: 0 5px #666;
+  transform: translateY(6px);
+  text-decoration:none;
+}
+
+.button {
+  background-color: #2A458A; /* Blue */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 15px;
+
+  background-color: white; 
+  color: black; 
+  border: 2px solid #1A2B57;
+}
+
+.button:hover {
+  background-color: #1A2B57;
+  color: white;
+  text-decoration:none;
+}
+
+
+</style>

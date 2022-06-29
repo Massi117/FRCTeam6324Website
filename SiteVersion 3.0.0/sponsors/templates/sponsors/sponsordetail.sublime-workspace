@@ -1,0 +1,288 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/massi/Robotics_Web/robotpagee/sponsors/views.py",
+			"settings":
+			{
+				"buffer_size": 2187,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/aboutus.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/models.py",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/goldsponsorpage.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/sponsordetail.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/views.py",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/silversponsorpage.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/urls.py",
+		"/home/massi/Robotics_Web/robotpage/sponsors/admin.py",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/home.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/community.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/members.html",
+		"/home/massi/Robotics_Web/robotpage/robotpage/urls.py",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/bronzesponsorpage.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/navbar.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/footer.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/head_css.html",
+		"/home/massi/Robotics_Web/robotpage/robotpage/settings.py",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/become.html",
+		"/home/massi/Robotics_Web/robotpage/static/our_static/css/bg-inverse.css",
+		"/home/massi/Robotics_Web/robotpage/static/static_root/css/bg-inverse.css",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/base.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/forms.py",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/meta.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/javascript.html",
+		"/home/massi/Robotics_Web/robotpage/static/static_root/css/navbar-top.css",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/sponorpage.html",
+		"/home/massi/Robotics_Web/robotpage/static/static_root/css/jumbotron.css",
+		"/home/massi/Robotics_Web/robotpage/static/our_static/css/jumbotron.css",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/navbar.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/base.html",
+		"/home/massi/Robotics_Web/robotpage/sponsors/templates/sponsors/meta.html",
+		"/home/massi/Robotics_Web/robotpage/static/our_static/css/unt.tx",
+		"/home/massi/business/website_pro/accounts/models.py",
+		"/home/massi/business/website_pro/accounts/forms.py",
+		"/home/massi/business/website_pro/accounts/views.py",
+		"/home/massi/business/website_pro/accounts/templates/accounts/edit_profile.html",
+		"/home/massi/business/website_pro/accounts/templates/footer.html",
+		"/home/massi/business/website_pro/website/urls.py",
+		"/home/massi/business/website_pro/accounts/urls.py",
+		"/home/massi/business/website_pro/products/urls.py",
+		"/home/massi/business/website_pro/accounts/templates/accounts/profile.html",
+		"/home/massi/business/website_pro/products/views.py",
+		"/home/massi/business/website_pro/website/middleware.py",
+		"/home/massi/business/website_pro/accounts/admin.py",
+		"/home/massi/business/website_pro/accounts/templates/navbar.html",
+		"/home/massi/business/website_pro/products/models.py",
+		"/home/massi/business/website_pro/products/templates/products/prod_cate.html",
+		"/home/massi/business/website_pro/products/templates/products/prod_page.html",
+		"/home/massi/business/website_pro/products/admin.py",
+		"/home/massi/business/website_pro/products/templates/products/prod_detail.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/home_files/features.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/home_files/slider.html",
+		"/home/massi/business/website_pro/products/forms.py",
+		"/home/massi/business/website_pro/accounts/templates/base.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/home.html",
+		"/home/massi/business/website_pro/products/templates/products/cart.html",
+		"/home/massi/business/website_pro/static/our_static/css/carousel.css",
+		"/home/massi/business/website_pro/accounts/templates/accounts/home_files/header.html",
+		"/home/massi/business/website_pro/static/our_static/css/bg-inverse.css",
+		"/home/massi/business/website_pro/accounts/templates/javascript.html",
+		"/home/massi/business/website_pro/accounts/templates/head_css.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/login.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/login_redirect.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/logout.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/reg_form.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/reset_password.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/reset_password_complete.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/reset_password_confirm.html",
+		"/home/massi/business/website_pro/products/templates/products/delete.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/change_password.html",
+		"/home/massi/business/website_pro/static/static_root/css/bg-inverse.css",
+		"/home/massi/business/website_pro/accounts/templates/meta.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/new_home.html",
+		"/home/massi/business/website_pro/accounts/templates/new_home.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/slider.html",
+		"/home/massi/business/website_pro/accounts/templates/accounts/header.html",
+		"/home/massi/.local/share/Trash/files/carousel.html",
+		"/home/massi/business/website_pro/accounts/templates/home_files/carousel.html",
+		"/home/massi/business/website_pro/accounts/templates/home_files/home.html",
+		"/home/massi/business/website_pro/static/our_static/css/bootstrap.min.css",
+		"/home/massi/business/website_pro/static/static_root/css/bootstrap.min.css",
+		"/home/massi/business/website_pro/static/static_root/css/navbar-static-top.css",
+		"/home/massi/business/website_pro/static/our_static/css/navbar-fixed-top.css"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"btn btn-outline-secondary my-2 my-sm-0\n",
+			">\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/massi/Robotics_Web/robotpagee/sponsors/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2187,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sponsordetail.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 307.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

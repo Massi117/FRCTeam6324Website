@@ -1,0 +1,17 @@
+{% load staticfiles %}
+
+<div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        {% for stuffs in stuff %}
+        <div class="col-md-4">
+          <h2 class="font">{{ stuffs.title }}</h2>
+          <p class="font">{{ stuffs.body }}</p>
+          {% if stuffs.button %}
+          <p class="font"><a class="btn btn-outline-primary" href= "{{ stuffs.url }}"" role="button">{{ stuffs.button }} &raquo;</a></p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      
+      </div>
+    </div> 

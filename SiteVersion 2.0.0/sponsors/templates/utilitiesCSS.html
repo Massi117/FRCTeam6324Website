@@ -1,0 +1,42 @@
+{% load static %}
+
+<style>
+
+/*
+ * Utilities
+ */
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+
+
+.questionnaire-radio input[type=radio] {
+  display: none;
+  padding-top: 20px;
+}
+
+.questionnaire-radio input[type=radio]:checked + label {
+  background-color:  #28c3ab;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.questionnaire-radio label {
+  font-weight: normal;
+  width: 100%;
+  border: solid #28c3ab;
+  border-radius: 100px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.questionnaire-radio label:hover {
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #28c3ab;
+  cursor: pointer;
+}
+
+
+</style>
